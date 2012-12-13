@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 SPRestAPI
 =========
 
@@ -65,4 +64,3 @@ For brevity, here's a quick usage guide (i.e.: sample code):
 
 
 Cheerio!!
->>>>>>> Added start files for repo
