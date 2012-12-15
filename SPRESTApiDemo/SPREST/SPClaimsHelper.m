@@ -9,6 +9,7 @@
 #import "SPClaimsHelper.h"
 #import "SMXMLDocument.h"
 #import "WSReplyDelegate.h"
+#import "SPRequestDigest.h"
 
 @implementation SPClaimsHelper
 
@@ -90,7 +91,7 @@
 {
     NSString *xmlData = [[NSString alloc] initWithBytes:[tokenResponse mutableBytes] length:[tokenResponse length] encoding:NSUTF8StringEncoding];
     
-    NSLog(@"Response: %@", xmlData);
+    //NSLog(@"Response: %@", xmlData);
     NSError *error;
     SMXMLDocument *document = [SMXMLDocument documentWithData:tokenResponse error:&error];
     
@@ -136,6 +137,11 @@
 
 -(void)tokensReady: (int)cookieCount
 {
+    // Now that cookies have been set, let's initialize the RequestDigest before returning back to the caller:
+    SPRequestDigest *digest = [SPRequestDigest sharedSPRequestDigest];
+    digest.siteUrl = self.siteUrl;
+    [SPRequestDigest ValidateRequestDigest];
+    
     [_tokenDelegate tokenDelegate:(id)self didReceiveToken:cookieCount];
 }
 
@@ -156,4 +162,5 @@
     CFRelease(theUUID);
     return (__bridge NSString *)string;
 }
+
 @end

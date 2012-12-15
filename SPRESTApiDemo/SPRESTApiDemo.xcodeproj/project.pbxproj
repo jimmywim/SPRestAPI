@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23737BFD167CC9750048BF52 /* SPRequestDigest.m in Sources */ = {isa = PBXBuildFile; fileRef = 23737BFC167CC9750048BF52 /* SPRequestDigest.m */; };
 		23F1E74E167A71E6003F547B /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23F1E74C167A71E5003F547B /* MainStoryboard_iPhone.storyboard */; };
 		23FEEA26167907CD006F66B9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FEEA25167907CD006F66B9 /* UIKit.framework */; };
 		23FEEA28167907CD006F66B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FEEA27167907CD006F66B9 /* Foundation.framework */; };
@@ -30,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23737BFB167CC9750048BF52 /* SPRequestDigest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRequestDigest.h; sourceTree = "<group>"; };
+		23737BFC167CC9750048BF52 /* SPRequestDigest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRequestDigest.m; sourceTree = "<group>"; };
 		23F1E74D167A71E6003F547B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		23FEEA21167907CD006F66B9 /* SPRESTApiDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPRESTApiDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23FEEA25167907CD006F66B9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -162,6 +165,8 @@
 				23FEEA71167A4E20006F66B9 /* SPRESTQuery.m */,
 				23FEEA72167A4E20006F66B9 /* WSReplyDelegate.h */,
 				23FEEA73167A4E20006F66B9 /* WSReplyDelegate.m */,
+				23737BFB167CC9750048BF52 /* SPRequestDigest.h */,
+				23737BFC167CC9750048BF52 /* SPRequestDigest.m */,
 			);
 			path = SPREST;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 				23FEEA77167A4E20006F66B9 /* SPClaimsHelper.m in Sources */,
 				23FEEA78167A4E20006F66B9 /* SPRESTQuery.m in Sources */,
 				23FEEA79167A4E20006F66B9 /* WSReplyDelegate.m in Sources */,
+				23737BFD167CC9750048BF52 /* SPRequestDigest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

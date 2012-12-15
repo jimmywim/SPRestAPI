@@ -17,6 +17,9 @@
 @property (nonatomic, retain) NSString *queryUrl;
 @property (nonatomic, readonly) NSURL *fullQueryUri;
 @property (nonatomic, retain) NSString *requestId;
+@property (nonatomic, retain) NSString *requestMethod;
+
+@property BOOL includeFormDigest;
 
 -(id)initWithUrl:(NSString *)url;
 -(id)initWithUrlRequestId:(NSString *)url id:(NSString *)requestId;

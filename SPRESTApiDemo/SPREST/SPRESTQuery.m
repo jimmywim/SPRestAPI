@@ -10,20 +10,24 @@
 #import "SPAuthCookies.h"
 #import "SPAPIResponseHandler.h"
 #import "SMXMLDocument.h"
+#import "SPRequestDigest.h"
 
 @implementation SPRESTQuery
 @synthesize delegate;
 @synthesize queryUrl;
 @synthesize fullQueryUri;
 @synthesize requestId = _requestId;
+@synthesize includeFormDigest;
+@synthesize requestMethod;
 
 -(id) initWithUrl:(NSString *)url
 {
     if (self = [super init])
     {
         queryUrl = url;
-        
         fullQueryUri = [NSURL URLWithString:queryUrl];
+        includeFormDigest = YES;
+        requestMethod = @"GET";
     }
     
     return self;
@@ -45,7 +49,15 @@
     [apiRequest setValue:@"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)"  forHTTPHeaderField:@"User-Agent"];
     [apiRequest setValue:@"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" forHTTPHeaderField:@"Accept"];
     [apiRequest setValue:@"ISO-8859-1,utf-8;q=0.7,*;q=0.3" forHTTPHeaderField:@"Accept-Charset"];
-
+    [apiRequest setValue:requestMethod forHTTPHeaderField:@"METHOD"];
+    [apiRequest setHTTPMethod:requestMethod];
+    
+    if (includeFormDigest)
+    {
+        [SPRequestDigest ValidateRequestDigest];
+        [apiRequest setValue:[[SPRequestDigest sharedSPRequestDigest] formDigest] forHTTPHeaderField:@"X-RequestDigest"];
+    }
+    
     NSMutableArray *cookiesArray = [SPAuthCookies getSharedAuthCookies:fullQueryUri];
                                     
     NSDictionary *headers = [NSHTTPCookie requestHeaderFieldsWithCookies:cookiesArray];

@@ -21,7 +21,7 @@ static SPAuthCookies *SharedSPAuthCookie;
     @synchronized([SPAuthCookies class])
 	{
 		if (!SharedSPAuthCookie)
-			[[self alloc] init];
+			(void)[[self alloc] init];
         
 		return SharedSPAuthCookie;
 	}
