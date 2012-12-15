@@ -1,14 +1,14 @@
 SPRestAPI
 =========
 
-A Simple REST API Wrapper for SharePoint 2013
+A Simple REST API Wrapper for SharePoint 2013 for iOS Developers
 =======
 ### README - SPRestAPI
 
 James Love (jimmywim)
 December 13th 2012
 
-This is a simple API for helping with authentication and calling the SharePoint REST APIs.
+This is a simple API for helping with authentication and calling the SharePoint REST APIs from iOS devices.
 
 Detailed information about this API can be found on my blog here:
 http://e-junkie-chronicles.blogspot.com/2012/12/sharepoint-2013-rest-api-in-ios.html
