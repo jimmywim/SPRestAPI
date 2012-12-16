@@ -76,6 +76,8 @@
         }
     }
     
+    [[SPAuthCookies sharedSPAuthCookie] setSiteUrl:siteUrl];
+    
     return request;
 }
 
