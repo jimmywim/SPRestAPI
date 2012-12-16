@@ -1,5 +1,3 @@
-(Apologies, the repository is in an absolute mess at the moment - I cannot get used to git at all, I may have to shift this over to CodePlex soon)
-
 SPRestAPI
 =========
 
@@ -11,6 +9,8 @@ James Love (jimmywim)
 December 13th 2012
 
 This is a simple API for helping with authentication and calling the SharePoint REST APIs from iOS devices.
+
+Full usage guide: https://github.com/jimmywim/SPRestAPI/wiki/Usage
 
 Detailed information about this API can be found on my blog here:
 http://e-junkie-chronicles.blogspot.com/2012/12/sharepoint-2013-rest-api-in-ios.html
