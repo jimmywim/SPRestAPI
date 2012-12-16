@@ -6,8 +6,7 @@
 //  Copyright (c) 2012 James Love. All rights reserved.
 //
 
-#import "MasterViewController.h"
-
+#import "AllListsViewController.h"
 #import "DetailViewController.h"
 #import "SPAuthCookies.h"
 #import "SPRESTQuery.h"
@@ -24,6 +23,7 @@
 @synthesize spinner;
 @synthesize siteUrl;
 @synthesize webTitle;
+
 
 //NSString *webtitle;
 
@@ -42,12 +42,10 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+//    self.navigationItem.rightBarButtonItem = addButton;
+    
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-    
-    
-    //self.detailViewController = [[DetailViewController alloc] init];
 
     self.webTitle = @"";
     // check to see if we have cookies
@@ -57,6 +55,7 @@
         self.items = [NSArray arrayWithObjects:@"Row 1", @"Row 2", @"Row 3", nil];
         return;
     }
+    
     
     NSMutableString *titleQueryUrl = [[NSMutableString alloc] initWithString:siteUrl];
     [titleQueryUrl appendString:@"/_api/web/Title"];
@@ -137,12 +136,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-//
-//    NSDate *object = _objects[indexPath.row];
-//    cell.textLabel.text = [object description];
-//    return cell;
-    
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -188,27 +181,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-//        NSDate *object = _objects[indexPath.row];
-//        self.detailViewController.detailItem = object;
-//    }
-    
-    //self.detailViewController.detailItem = [self.items objectAtIndex:indexPath.row];
-    //[self.tableView deselectRowAtIndexPath:indexPath animated:NO];
-    //[self performSegueWithIdentifier:@"showDetail" sender:self.view];
-  
     self.detailViewController.detailItem = [self.items objectAtIndex:indexPath.row];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showDetail"])
+    if ([[segue identifier] isEqualToString:@"ShowListItems"])
     {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSString *object = _objects[indexPath.row];
-        [[segue destinationViewController] setTitle:object];
-        [[segue destinationViewController] setListTitle:object];
-        [[segue destinationViewController] setDetailItem:object];
+        //NSString *object = _objects[indexPath.row];
+        
+        NSString *selectedListTitle = [self.items objectAtIndex:indexPath.row];
+        [[segue destinationViewController] setSiteUrl:siteUrl];
+        [[segue destinationViewController] setListTitle:selectedListTitle];
     }
 }
 

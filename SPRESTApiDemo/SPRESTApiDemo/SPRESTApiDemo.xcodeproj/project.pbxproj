@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		232C058E167D095F007C678C /* ImageChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 232C058D167D095F007C678C /* ImageChooserViewController.m */; };
-		232C05CD167D333B007C678C /* ListItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 232C05CC167D333B007C678C /* ListItemViewController.m */; };
 		23737BFD167CC9750048BF52 /* SPRequestDigest.m in Sources */ = {isa = PBXBuildFile; fileRef = 23737BFC167CC9750048BF52 /* SPRequestDigest.m */; };
 		23F1E74E167A71E6003F547B /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23F1E74C167A71E5003F547B /* MainStoryboard_iPhone.storyboard */; };
 		23FEEA26167907CD006F66B9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FEEA25167907CD006F66B9 /* UIKit.framework */; };
@@ -21,7 +20,7 @@
 		23FEEA3A167907CD006F66B9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23FEEA39167907CD006F66B9 /* Default@2x.png */; };
 		23FEEA3C167907CD006F66B9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23FEEA3B167907CD006F66B9 /* Default-568h@2x.png */; };
 		23FEEA42167907CD006F66B9 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23FEEA40167907CD006F66B9 /* MainStoryboard_iPad.storyboard */; };
-		23FEEA45167907CD006F66B9 /* AllListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FEEA44167907CD006F66B9 /* AllListsViewController.m */; };
+		23FEEA45167907CD006F66B9 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FEEA44167907CD006F66B9 /* MasterViewController.m */; };
 		23FEEA48167907CD006F66B9 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FEEA47167907CD006F66B9 /* DetailViewController.m */; };
 		23FEEA5316790F09006F66B9 /* FirstPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FEEA5216790F09006F66B9 /* FirstPageViewController.m */; };
 		23FEEA74167A4E20006F66B9 /* SMXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FEEA69167A4E20006F66B9 /* SMXMLDocument.m */; };
@@ -35,9 +34,7 @@
 /* Begin PBXFileReference section */
 		232C058C167D095F007C678C /* ImageChooserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageChooserViewController.h; sourceTree = "<group>"; };
 		232C058D167D095F007C678C /* ImageChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageChooserViewController.m; sourceTree = "<group>"; };
-		232C05CA167D31B2007C678C /* AllListsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllListsViewController.h; sourceTree = "<group>"; };
-		232C05CB167D333B007C678C /* ListItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListItemViewController.h; sourceTree = "<group>"; };
-		232C05CC167D333B007C678C /* ListItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListItemViewController.m; sourceTree = "<group>"; };
+		232C05C9167D300A007C678C /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		23737BFB167CC9750048BF52 /* SPRequestDigest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRequestDigest.h; sourceTree = "<group>"; };
 		23737BFC167CC9750048BF52 /* SPRequestDigest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRequestDigest.m; sourceTree = "<group>"; };
 		23F1E74D167A71E6003F547B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
@@ -55,7 +52,7 @@
 		23FEEA39167907CD006F66B9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		23FEEA3B167907CD006F66B9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		23FEEA41167907CD006F66B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		23FEEA44167907CD006F66B9 /* AllListsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllListsViewController.m; sourceTree = "<group>"; };
+		23FEEA44167907CD006F66B9 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		23FEEA46167907CD006F66B9 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		23FEEA47167907CD006F66B9 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		23FEEA5116790F09006F66B9 /* FirstPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstPageViewController.h; path = ../FirstPageViewController.h; sourceTree = "<group>"; };
@@ -123,8 +120,8 @@
 				23FEEA35167907CD006F66B9 /* AppDelegate.m */,
 				23F1E74C167A71E5003F547B /* MainStoryboard_iPhone.storyboard */,
 				23FEEA40167907CD006F66B9 /* MainStoryboard_iPad.storyboard */,
-				232C05CA167D31B2007C678C /* AllListsViewController.h */,
-				23FEEA44167907CD006F66B9 /* AllListsViewController.m */,
+				232C05C9167D300A007C678C /* MasterViewController.h */,
+				23FEEA44167907CD006F66B9 /* MasterViewController.m */,
 				23FEEA46167907CD006F66B9 /* DetailViewController.h */,
 				23FEEA47167907CD006F66B9 /* DetailViewController.m */,
 				23FEEA5116790F09006F66B9 /* FirstPageViewController.h */,
@@ -132,8 +129,6 @@
 				23FEEA2C167907CD006F66B9 /* Supporting Files */,
 				232C058C167D095F007C678C /* ImageChooserViewController.h */,
 				232C058D167D095F007C678C /* ImageChooserViewController.m */,
-				232C05CB167D333B007C678C /* ListItemViewController.h */,
-				232C05CC167D333B007C678C /* ListItemViewController.m */,
 			);
 			path = SPRESTApiDemo;
 			sourceTree = "<group>";
@@ -250,7 +245,7 @@
 			files = (
 				23FEEA32167907CD006F66B9 /* main.m in Sources */,
 				23FEEA36167907CD006F66B9 /* AppDelegate.m in Sources */,
-				23FEEA45167907CD006F66B9 /* AllListsViewController.m in Sources */,
+				23FEEA45167907CD006F66B9 /* MasterViewController.m in Sources */,
 				23FEEA48167907CD006F66B9 /* DetailViewController.m in Sources */,
 				23FEEA5316790F09006F66B9 /* FirstPageViewController.m in Sources */,
 				23FEEA74167A4E20006F66B9 /* SMXMLDocument.m in Sources */,
@@ -261,7 +256,6 @@
 				23FEEA79167A4E20006F66B9 /* WSReplyDelegate.m in Sources */,
 				23737BFD167CC9750048BF52 /* SPRequestDigest.m in Sources */,
 				232C058E167D095F007C678C /* ImageChooserViewController.m in Sources */,
-				232C05CD167D333B007C678C /* ListItemViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

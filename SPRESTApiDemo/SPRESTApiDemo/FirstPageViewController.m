@@ -7,7 +7,7 @@
 //
 
 #import "FirstPageViewController.h"
-#import "AllListsViewController.h"
+#import "MasterViewController.h"
 #import "SPClaimsHelper.h"
 #import "SPAuthCookies.h"
 #import "SPRESTQuery.h"

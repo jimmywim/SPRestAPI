@@ -7,19 +7,18 @@
 //
 
 #import "MasterViewController.h"
-
 #import "DetailViewController.h"
 #import "SPAuthCookies.h"
 #import "SPRESTQuery.h"
 #import "SMXMLDocument.h"
 
 
-@interface AllListsViewController () {
+@interface MasterViewController () {
     NSMutableArray *_objects;
 }
 @end
 
-@implementation AllListsViewController
+@implementation MasterViewController
 
 @synthesize spinner;
 @synthesize siteUrl;

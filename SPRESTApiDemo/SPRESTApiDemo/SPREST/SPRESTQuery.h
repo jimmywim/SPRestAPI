@@ -15,10 +15,9 @@
 @interface SPRESTQuery : NSObject
 @property (nonatomic, weak) id <SPRESTDelegate> delegate;
 @property (nonatomic, retain) NSString *queryUrl;
-@property (nonatomic, retain) NSURL *fullQueryUri;
+@property (nonatomic, readonly) NSURL *fullQueryUri;
 @property (nonatomic, retain) NSString *requestId;
 @property (nonatomic, retain) NSString *requestMethod;
-@property (nonatomic, retain) NSData *attachedFile;
 
 @property BOOL includeFormDigest;
 

@@ -19,14 +19,13 @@
 @synthesize requestId = _requestId;
 @synthesize includeFormDigest;
 @synthesize requestMethod;
-@synthesize attachedFile;
 
 -(id) initWithUrl:(NSString *)url
 {
     if (self = [super init])
     {
         queryUrl = url;
-        fullQueryUri = [NSURL URLWithString:[queryUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        fullQueryUri = [NSURL URLWithString:queryUrl];
         includeFormDigest = YES;
         requestMethod = @"GET";
     }
@@ -53,22 +52,16 @@
     [apiRequest setValue:requestMethod forHTTPHeaderField:@"METHOD"];
     [apiRequest setHTTPMethod:requestMethod];
     
-    // Include Request Digest, if asked
     if (includeFormDigest)
     {
         [SPRequestDigest ValidateRequestDigest];
         [apiRequest setValue:[[SPRequestDigest sharedSPRequestDigest] formDigest] forHTTPHeaderField:@"X-RequestDigest"];
     }
     
-    // Attach authorisation cookies
     NSMutableArray *cookiesArray = [SPAuthCookies getSharedAuthCookies:fullQueryUri];
+                                    
     NSDictionary *headers = [NSHTTPCookie requestHeaderFieldsWithCookies:cookiesArray];
     [apiRequest setAllHTTPHeaderFields:headers];
-    
-    // Attach a payload, if defined
-    if ([attachedFile length] > 0)
-        [apiRequest setHTTPBody:attachedFile];
-    
     SPAPIResponseHandler *apiHandler = [[SPAPIResponseHandler alloc] init];
     apiHandler.targetObject = self;
     
@@ -80,8 +73,8 @@
 {
     // Load the returned string into XML and pass it to this instance's delegate for the
     // client app to consume
-    NSString* newStr = [[NSString alloc] initWithData:returnedData encoding:NSUTF8StringEncoding];
-    NSLog(@"Returned Data:%@", newStr);
+    //NSString* newStr = [[NSString alloc] initWithData:returnedData encoding:NSUTF8StringEncoding];
+    //NSLog(@"Returned Data:%@", newStr);
     NSError *error;
     SMXMLDocument *document = [SMXMLDocument documentWithData:returnedData error:&error];
     
