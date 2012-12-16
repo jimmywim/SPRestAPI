@@ -1,3 +1,5 @@
+(Apologies, the repository is in an absolute mess at the moment - I cannot get used to git at all, I may have to shift this over to CodePlex soon)
+
 SPRestAPI
 =========
 
