@@ -70,8 +70,10 @@ static SPAuthCookies *SharedSPAuthCookie;
     NSHTTPCookie *fedAuthCookieObj = [NSHTTPCookie cookieWithProperties:fedAuthCookie];
     NSHTTPCookie *rtFaCookieObj = [NSHTTPCookie cookieWithProperties:rtFaCookie];
     
-    NSMutableArray *cookiesArray = [NSMutableArray arrayWithObjects:rtFaCookieObj, nil];
-    [cookiesArray addObject:fedAuthCookieObj];
+    NSMutableArray *cookiesArray = [NSMutableArray arrayWithObjects: fedAuthCookieObj, nil];
+    
+    if(rtFaCookieObj != nil)
+        [cookiesArray addObject:rtFaCookieObj];
     
     return cookiesArray;
 }

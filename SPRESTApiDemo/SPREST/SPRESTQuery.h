@@ -19,13 +19,16 @@
 @property (nonatomic, retain) NSString *requestId;
 @property (nonatomic, retain) NSString *requestMethod;
 @property (nonatomic, retain) NSData *attachedFile;
+@property (nonatomic, retain) NSString *payload;
+@property (nonatomic, retain) NSString *soapAction;
 
 @property BOOL includeFormDigest;
 
 -(id)initWithUrl:(NSString *)url;
 -(id)initWithUrlRequestId:(NSString *)url id:(NSString *)requestId;
 -(void)executeQuery;
--(void) returnValue:(NSData *)returnedData;
+-(void) returnValue:(NSData *)returnedData statusCode:(NSInteger) statusCode;
+-(void) returnedBadError:(NSError* )error;
 @end
 
 @protocol SPRESTDelegate <NSObject>
@@ -33,4 +36,5 @@
 -(void)SPREST:(id)SPREST didCompleteQuery: (SMXMLDocument *)result;
 -(void)SPREST:(id)SPREST didCompleteQueryWithRequestId: (SMXMLDocument *)result requestId:(NSString *)requestId;
 -(void)SPREST:(id)SPREST didCompleteWithFailure: (NSError *)error;
+-(void)SPREST:(id)SPREST didCompleteWithAuthFailure: (NSError *)error;
 @end

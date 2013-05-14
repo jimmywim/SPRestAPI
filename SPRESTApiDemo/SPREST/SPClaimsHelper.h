@@ -12,8 +12,7 @@
 @class SPClaimsToken;
 @protocol   SPClaimsTokenDelegate <NSObject>
 @optional
-- (void)tokenDelegate: (SPClaimsToken *)tokenClass didReceiveToken: (int)count;
-
+- (void)tokenDelegate: (SPClaimsToken *)tokenClass didReceiveToken: (int)count ;
 @end
 
 
@@ -30,8 +29,6 @@
 @property (nonatomic, retain) NSString *username;
 @property (nonatomic, retain) NSString *password;
 @property (nonatomic, retain) NSString *siteUrl;
-
-
 
 -(id)initWithUsernamePasswordSite: (NSString *)uname password:(NSString *)pword site:(NSString *)site;
 -(void) GetTokens;

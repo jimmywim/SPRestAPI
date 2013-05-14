@@ -11,6 +11,7 @@
 @interface SPAPIResponseHandler : NSObject
 @property (nonatomic, strong) NSObject *targetObject;
 @property (nonatomic, strong) NSMutableData *responseData;
+@property NSInteger responseCode;
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
 - (void)connectionDidFinishLoading:(NSURLConnection	 *)connection;

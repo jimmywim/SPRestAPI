@@ -12,6 +12,7 @@
 @implementation SPAPIResponseHandler
 @synthesize responseData = _responseData;
 @synthesize targetObject;
+@synthesize responseCode;
 
 -(id) init
 {
@@ -24,9 +25,9 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    //NSHTTPURLResponse *resp = (NSHTTPURLResponse *)response;
+    NSHTTPURLResponse *resp = (NSHTTPURLResponse *)response;
     //NSLog(@"Response Status: %d", [resp statusCode]);
-
+    self.responseCode = [resp statusCode];
     [_responseData setLength:0];
 }
 
@@ -44,7 +45,7 @@
     //NSString *responseString = [[NSString alloc] initWithData:_responseData encoding:NSUTF8StringEncoding];
     //NSLog(@"Response: %@", responseString);
     // For some really f*cking odd reason, this clears the response.
-    [(SPRESTQuery *)targetObject returnValue:_responseData];
+    [(SPRESTQuery *)targetObject returnValue:_responseData statusCode:self.responseCode];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
@@ -55,6 +56,8 @@
           [error localizedDescription],
           [error localizedFailureReason],
           [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
+    
+    [(SPRESTQuery *)targetObject returnedBadError:error];
 }
 
 

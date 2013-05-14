@@ -10,6 +10,7 @@
 #import "SMXMLDocument.h"
 #import "WSReplyDelegate.h"
 #import "SPRequestDigest.h"
+#import "SPREST.h"
 
 @implementation SPClaimsHelper
 
@@ -47,8 +48,8 @@
         NSDate *timeNow = [NSDate dateWithTimeIntervalSinceNow:0];
         NSDate *timeExpiry = [NSDate dateWithTimeIntervalSinceNow:300];
 
-        NSString *msgId = [[self GetUUID] lowercaseString];
-        NSString *usernameTokenId = [[self GetUUID] lowercaseString];
+        NSString *msgId = [[Utilities GetUUID] lowercaseString];
+        NSString *usernameTokenId = [[Utilities GetUUID] lowercaseString];
 
         soapTemplate = [NSString stringWithFormat:soapTemplate, msgId, [dateFormatter stringFromDate:timeNow], [dateFormatter stringFromDate:timeExpiry], usernameTokenId, username, password, siteUrl];
     }
@@ -114,9 +115,16 @@
     
     //NSLog(@"Got the security token, sending it to the site...");
     
+    
     // Lets get dem cookies
     // om nom nom nom
-    NSMutableString *loginUrl = [[NSMutableString alloc] initWithString: siteUrl];
+    //NSMutableString *loginUrl = [[NSMutableString alloc] initWithString: siteUrl];
+    NSURL *authServer = [NSURL URLWithString:siteUrl];
+    NSMutableString *authServerUrl = [NSMutableString stringWithString:authServer.scheme];
+    [authServerUrl appendString:@"://"];
+    [authServerUrl appendString:authServer.host];
+    
+    NSMutableString *loginUrl = [[NSMutableString alloc] initWithString: authServerUrl];
     [loginUrl appendString:@"/_forms/default.aspx?wa=wsignin1.0"];
     
     
@@ -153,14 +161,6 @@
     }
     
     return @"";
-}
-
-- (NSString *)GetUUID
-{
-    CFUUIDRef theUUID = CFUUIDCreate(NULL);
-    CFStringRef string = CFUUIDCreateString(NULL, theUUID);
-    CFRelease(theUUID);
-    return (__bridge NSString *)string;
 }
 
 @end
