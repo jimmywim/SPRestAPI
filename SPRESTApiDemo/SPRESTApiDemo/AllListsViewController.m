@@ -20,7 +20,6 @@
 
 @implementation AllListsViewController
 
-@synthesize spinner;
 @synthesize siteUrl;
 @synthesize webTitle;
 
@@ -36,17 +35,26 @@
     [super awakeFromNib];
 }
 
+- (void) startActivityIndicator
+{
+    activityIndicator.hidesWhenStopped = YES;
+    activityIndicator.center = self.view.center;
+    
+    [self.view addSubview:activityIndicator];
+    [activityIndicator startAnimating];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-//    self.navigationItem.rightBarButtonItem = addButton;
-    
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 
+    [self startActivityIndicator];
+    
+    
     self.webTitle = @"";
     // check to see if we have cookies
     if ([[[SPAuthCookies sharedSPAuthCookie] fedAuth] length] == 0)
@@ -56,7 +64,6 @@
         return;
     }
     
-    
     NSMutableString *titleQueryUrl = [[NSMutableString alloc] initWithString:siteUrl];
     [titleQueryUrl appendString:@"/_api/web/Title"];
                                        
@@ -64,7 +71,8 @@
     [titleQuery setDelegate:(id)self];
     [titleQuery executeQuery];
     
-    NSMutableString *listQueryUrl = [[NSMutableString alloc] initWithString:siteUrl];
+    NSString *siteURL = [[SPAuthCookies sharedSPAuthCookie] siteUrl];
+    NSMutableString *listQueryUrl = [[NSMutableString alloc] initWithString:siteURL];
     [listQueryUrl appendString:@"/_api/lists"];
     
     SPRESTQuery *listsQuery = [[SPRESTQuery alloc] initWithUrlRequestId:listQueryUrl id:@"Lists"];
@@ -97,6 +105,8 @@
         //NSLog(@"Setting lists array");
         self.items = listsArray;
     }
+    
+    [activityIndicator stopAnimating];
     [self.tableView reloadData];
 }
 
@@ -189,10 +199,8 @@
     if ([[segue identifier] isEqualToString:@"ShowListItems"])
     {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        //NSString *object = _objects[indexPath.row];
-        
+    
         NSString *selectedListTitle = [self.items objectAtIndex:indexPath.row];
-        [[segue destinationViewController] setSiteUrl:siteUrl];
         [[segue destinationViewController] setListTitle:selectedListTitle];
     }
 }

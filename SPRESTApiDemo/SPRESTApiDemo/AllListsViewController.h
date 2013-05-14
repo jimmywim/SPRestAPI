@@ -11,12 +11,13 @@
 @class DetailViewController;
 
 @interface AllListsViewController : UITableViewController
+{
+    IBOutlet UIActivityIndicatorView *activityIndicator;
+}
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
 @property (strong, nonatomic) NSArray *items;
-
-@property (strong, nonatomic) UIActivityIndicatorView *spinner;
 
 @property (strong, nonatomic) NSString *siteUrl;
 @property (strong, nonatomic) NSString *webTitle;

@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ListItemViewController : UITableViewController
+{
+     IBOutlet UIActivityIndicatorView *activityIndicator;
+}
 
 @property (nonatomic, retain) NSString *listTitle;
 @property (strong, nonatomic) NSArray *listItems;

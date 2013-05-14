@@ -9,8 +9,8 @@
 #import "FirstPageViewController.h"
 #import "AllListsViewController.h"
 #import "SPClaimsHelper.h"
-#import "SPAuthCookies.h"
-#import "SPRESTQuery.h"
+//#import "SPAuthCookies.h"
+//#import "SPRESTQuery.h"
 
 @interface FirstPageViewController ()
 
