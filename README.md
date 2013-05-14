@@ -6,6 +6,16 @@ A Simple REST API Wrapper for SharePoint 2013 for iOS Developers
 ### README - SPRestAPI
 
 James Love (jimmywim)
+
+UPDATE - May 14th 2013
+I have added a class that handles FormsAuthentication (called SPFormsAuth.m). This works in SharePoint 2010, which makes for an interesting point.
+I have also added a couple of properties which can enhance the outgoing request, including setting a SOAPMethod, and adding a SOAP Payload. This actually allows you to call the bog standard ASMX web services in SharePoint, which means this can become a generic iOS SharePoint Library. 
+This then means I might have to rename this project, and refactor hell of a lot of code to take away the 'REST' side of things. Anyway, if you want to use it with SharePoint 2010, you'll need to set the SOAPAction (using the setSoapAction message), set the method to POST, and finally set the payload. This needs to be the full SOAP envelope for your request. If I decide to rename and refactor this to a generic SharePoint library, then I'll probably simplify this such that you simply pass in a method name and the code will store the SOAP envelope for you, but I'll see how it goes.
+
+If I do decide to rename the project, I'll keep this one alive but freeze it, and create a new project site with the new code in there. Watch this space!
+
+
+
 December 13th 2012
 
 This is a simple API for helping with authentication and calling the SharePoint REST APIs from iOS devices.
