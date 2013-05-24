@@ -1,6 +1,10 @@
 SPRestAPI
 =========
 
+PLEASE NOTE THIS REPO IS NO LONGER MAINTAINED. THIS HAS BEEN MIGRATED TO:
+https://github.com/jimmywim/SPMobile
+
+
 A Simple REST API Wrapper for SharePoint 2013 for iOS Developers
 =======
 ### README - SPRestAPI
